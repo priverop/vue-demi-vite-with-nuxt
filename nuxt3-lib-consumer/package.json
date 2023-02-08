@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@prp-astara/vite-test-lib": "^0.1.0"
+  },
+  "devDependencies": {
+    "nuxt": "^3.1.1"
+  }
+}
