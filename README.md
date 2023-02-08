@@ -4,35 +4,13 @@ I'm trying to create a [Vue-demi](https://github.com/vueuse/vue-demi) components
 
 This repo demonstrates this problem. It contains:
 
-- **vite-test-lib** - A minimal Vite library. It is published at: https://www.npmjs.com/package/@dprp-astara/vite-test-lib. It exports two components.
+- **vite-test-lib** - A minimal Vite library using Vue-Demi. It is published at: https://www.npmjs.com/package/@dprp-astara/vite-test-lib. It exports two components.
 - **nuxt3-lib-consumer** - A minimal Nuxt 3 application. Imports the library. Run `yarn install && yarn dev` or `npm install && npm dev`.
 - **nuxt2-lib-consumer** - A minimal Nuxt 2 application. Imports the library. Run `yarn install && yarn dev` or `npm install && npm dev`.
 
 ## Errors
 
-After running `yarn install && yarn dev` in the **nuxt3-lib-consumer** project.
-
-### Using modules
-
-nuxt.config.ts
-```typescript
-export default defineNuxtConfig({¡
-    module: ['@prp-astara/vite-test-lib']
-})
-```
-
-```bash
- ERROR  Cannot start nuxt:  Cannot convert object to primitive value                                                                                                                                                                                                   13:26:46
-
-  at normalizeModule (node_modules/@nuxt/kit/dist/index.mjs:458:62)
-  at async installModule (node_modules/@nuxt/kit/dist/index.mjs:434:41)
-  at async initNuxt (node_modules/nuxt/dist/index.mjs:2044:7)
-  at async load (node_modules/nuxi/dist/chunks/dev.mjs:6797:9)
-  at async Object.invoke (node_modules/nuxi/dist/chunks/dev.mjs:6858:5)
-  at async _main (node_modules/nuxi/dist/cli.mjs:51:20)
-```
-
-### Using transpile
+After running `yarn install && yarn dev` in both the **lib-consumer** projects it works fine in Nuxt 2 but it doesn't work in Nuxt 3.
 
 nuxt.config.ts
 ```typescript
@@ -48,14 +26,16 @@ export default defineNuxtConfig({
 [Vue warn]: Unhandled error during execution of render function                                                                                                                                                                                                        13:18:50
   at <Anonymous>
 [nitro] [dev] [unhandledRejection] TypeError: Cannot read properties of undefined (reading '_c')                                                                                                                                                                       13:18:50
-    at Proxy.$ (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@prp-astara/vite-test-lib/dist/vite-test-lib.umd.js:1:1163)
-    at renderComponentRoot (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:906:44)                                                                                                       13:18:41
-    at renderComponentSubTree (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:719:51)
-    at renderComponentVNode (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:644:16)
-    at Module.ssrRenderComponent (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:94:12)
-    at _sfc_ssrRender (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/app.vue:23:31)
-    at renderComponentSubTree (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:710:17)
-    at renderComponentVNode (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:644:16)
-    at Module.ssrRenderComponent (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:94:12)
-    at default (/nuxt3-vue2-lib-consumption/nuxt3-lib-consumer/node_modules/nuxt/dist/app/components/nuxt-root.vue:63:37)
+    at Proxy.$ (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@prp-astara/vite-test-lib/dist/vite-test-lib.umd.js:1:1163)
+    at renderComponentRoot (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:906:44)                                                                                                       13:18:41
+    at renderComponentSubTree (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:719:51)
+    at renderComponentVNode (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:644:16)
+    at Module.ssrRenderComponent (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:94:12)
+    at _sfc_ssrRender (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/app.vue:23:31)
+    at renderComponentSubTree (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:710:17)
+    at renderComponentVNode (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:644:16)
+    at Module.ssrRenderComponent (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js:94:12)
+    at default (/vue-demi-vite-with-nuxt/nuxt3-lib-consumer/node_modules/nuxt/dist/app/components/nuxt-root.vue:63:37)
 ```
+
+This is the exact issue I had when you try to get Vue 2 working in Nuxt 3.
