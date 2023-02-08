@@ -1,1 +1,5 @@
-export default {};
+export default {
+  build: {
+    transpile: ["@prp-astara/vite-test-lib"],
+  },
+};
