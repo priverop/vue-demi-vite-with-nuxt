@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@prp-astara/vite-test-lib": "^0.1.0",
+    "@prp-astara/vite-test-lib": "^0.1.9",
     "nuxt": "^2.15.8"
   }
 }

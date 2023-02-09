@@ -718,10 +718,10 @@
     vite-plugin-checker "^0.5.4"
     vue-bundle-renderer "^1.0.0"
 
-"@prp-astara/vite-test-lib@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@prp-astara/vite-test-lib/-/vite-test-lib-0.1.0.tgz#6fd52e9506b0f9409e333bf4ecbd49bae82ff788"
-  integrity sha512-ducN8lnTHBrss9hhcQ1XOPUR3YGDMUkMd0IhBIRON252Z0OrPQNQ+lrjEjF7mh4oNVkmGQXks9/xzSFJ99EHrQ==
+"@prp-astara/vite-test-lib@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@prp-astara/vite-test-lib/-/vite-test-lib-0.1.9.tgz#8f50ddb876a357bcd48bb55d7d5d6260478aba92"
+  integrity sha512-PRdoR3qOk5ttCPoxEii1IoC3SmC0hinraAGdbbRiGhtKidBLm0ZFrnxJuD9oGPoj9JXkq49l5fVkjaZvCAndfA==
   dependencies:
     vue-demi latest
 
